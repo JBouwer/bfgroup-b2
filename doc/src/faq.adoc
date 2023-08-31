@@ -401,6 +401,21 @@ that they should always be used.
 
   ⚠️ WARNING: The resulting path will depend on the specific
  command line invocation, thus severely limited in practical use.
+
+|`exe`, `lib`, `install`
+|`dll-path` |_Darwin only:_ +
+An `@xxx` placeholder (`@executable_path` or `@loader_path`)
+with an optional relative directory.
+|An `@xxx` placeholder-rooted path, resulting in a search path in or relative
+to the _executable_ or _loader_ library. +
+See `man dyld` for details.footnote:[Note that Darwin also supports
+`@xxx` placeholders in the host library, using the `-install_name` option.
+(The idea is for the linker to obtain runtime paths from the client shared
+library itself - See `man ld`).
+This is however not currently supported by B2.
+B2 hardcodes shared libraries (``dylib``s in Apple lingo) to use only
+`-install_name @rpath/lib_name` -- thus enabling the described behaviour for
+client targets.]
 |===
 
 [[bbv2.recipes.site-config]]

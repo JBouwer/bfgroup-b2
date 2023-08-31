@@ -17,6 +17,11 @@ WARNING: Note that a relative path will be prepended with the directory of the r
 `jam` file - as supplied on the `b2` command line - thus _severely_ limiting its
 practical use!.
 +
+If the target platform is `darwin` the `@xxx` placeholders
+(`@executable_path` or `@loader_path`) can be specified to root the
+relative directory to the _executable_ or _loader_ library.
+(See `man dyld`.)
++
 Please see the link:#bbv2.faq.dll-path[FAQ entry on the
 `dll-path` and `hardcode-dll-paths`] for details, and the
 link:#bbv2.builtin.features.hardcode-dll-paths[`hardcode-dll-paths`] feature
